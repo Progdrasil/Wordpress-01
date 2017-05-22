@@ -1,0 +1,1 @@
+the current year is <?php echo the_current_date(); ?>
