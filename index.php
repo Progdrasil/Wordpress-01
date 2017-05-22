@@ -12,9 +12,12 @@
             </div>
             <div class="col span_1_of_3">
             <?php
-                $args = array();
+                $args = array('posts_per_page'=>10);
                 $post_data = get_posts($args);
                 foreach($post_data as $post_item)
+                {
+                    echo get_the_title($post_item).'<hr/>';
+                }
             ?>
             </div>
             <div class="col span_1_of_3">
