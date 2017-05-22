@@ -12,7 +12,10 @@
             </div>
             <div class="col span_1_of_3">
             <?php
-                $args = array('posts_per_page'=>10);
+                $args = array(
+                    'posts_per_page'=>10,
+                    'post_type'=>array('posts','page')
+                );
                 $post_data = get_posts($args);
                 foreach($post_data as $post_item)
                 {
