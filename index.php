@@ -39,6 +39,20 @@
                     echo '<h3><a href ="'.$link.'">'.get_the_title($post_item).'</a>'.'</h3>';
                     echo get_the_date('F j,Y', $post_item).'<hr/>';
                 }
+
+                echo '<h2>Pages</h2><hr/><hr/>';
+                $args = array(
+                    'post_type'=>array('page'),
+                    'posts_per_page'=>2,
+                    'orderby'=>'rand'
+                );
+                $post_data = get_posts($args);
+                foreach($post_data as $post_item)
+                {
+                    $link = get_permalink( $post_item );
+                    echo '<h3><a href ="'.$link.'">'.get_the_title($post_item).'</a>'.'</h3>';
+                    echo get_the_date('F j,Y', $post_item).'<hr/>';
+                }
             ?>
             </div>
             <div class="col span_1_of_3">
