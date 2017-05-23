@@ -17,12 +17,9 @@
         <div class="section group">
             <div class="col span_2_of_3">
             <?php
-                $posts = get_posts();
-                foreach($posts as $post)
-                {
-                    setup_postdata($post);
-                    echo get_the_content();
-                }
+                while (have_posts()) : the_post();
+                    the_content();
+                endwhile;
             ?>
             </div>
             <div class="col span_1_of_3">
