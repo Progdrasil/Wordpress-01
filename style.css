@@ -46,3 +46,10 @@ footer
     color: #FFF;
     text-align: center;
 }
+
+#tags{
+	background:cyan;
+	padding: 20px;
+	width: 100%;
+	height: 20px;
+}
