@@ -34,8 +34,8 @@
                 foreach($post_data as $post_item)
                 {
                     $link = get_permalink( $post_item );
-                    echo '<h3><a href ="'.$link.'">'.get_the_title($post_item).'</h3>';
-                    echo get_the_date('F j,Y', $post_item).'</a>'.'<hr/>';
+                    echo '<h3><a href ="'.$link.'">'.get_the_title($post_item).'</a>'.'</h3>';
+                    echo get_the_date('F j,Y', $post_item).'<hr/>';
                 }
             ?>
             </div>
