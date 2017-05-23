@@ -15,7 +15,8 @@
                 echo '<h2>Countries</h2><hr/><hr/>';
                 $args = array(
                     'post_type'=>array('countries'),
-                    'posts_per_page'=>10
+                    'posts_per_page'=>2,
+                    'orderby'=>'rand'
                 );
                 $post_data = get_posts($args);
                 foreach($post_data as $post_item)
@@ -28,7 +29,8 @@
                 echo '<h2>Posts</h2><hr/><hr/>';
                 $args = array(
                     'post_type'=>array('post'),
-                    'posts_per_page'=>10
+                    'posts_per_page'=>2,
+                    'orderby'=>'rand'
                 );
                 $post_data = get_posts($args);
                 foreach($post_data as $post_item)
