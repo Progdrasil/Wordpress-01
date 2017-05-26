@@ -22,10 +22,17 @@
 
     $html5_support = array('search-form','comment-form','gallery','comment-list','caption');
 
-    add_theme_support('post-thumbnails');
+    if(!current_user_can('manage_options'))
+    {
+        add_theme_support('post-thumbnails');
+        add_theme_support( 'post-formats', array('aside','gallery','video','image') );
+    }
+    else
+    {
+        add_theme_support( 'post-formats', array('aside') );
+    }
     add_theme_support( 'custom-header' );
     add_theme_support( 'custom-background' );
-    add_theme_support( 'post-formats', array('aside','gallery','video','image') );
     add_theme_support('title-tag');
     add_theme_support( 'html5', $html5_support );
 ?>
