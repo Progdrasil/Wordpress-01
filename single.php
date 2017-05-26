@@ -43,8 +43,8 @@
             </div>
             <div class="col span_1_of_3">
             <?php 
-                comments_template();
-                get_sidebar();     
+                get_sidebar();
+                comments_template();     
             ?>
             </div>
         </div>

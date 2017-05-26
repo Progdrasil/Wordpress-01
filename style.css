@@ -37,6 +37,7 @@ Version: 1.0
 	.span_3_of_3, .span_2_of_3, .span_1_of_3 { width: 100%; }
 }
 
+/*    HTML    */
 footer
 {
     background: #333399;
@@ -47,9 +48,25 @@ footer
     text-align: center;
 }
 
+/*    ID's    */
 #tags{
 	background:cyan;
 	padding: 20px;
 	width: 100%;
 	height: 20px;
+}
+
+/*    CLASSES    */
+.searchform input[type="submit"]{
+	background: #3399FF;
+	border: navy 2px solid;
+	color: white;
+	border-radius: 5px;
+}
+.searchform input[type="text"]{
+	background: #DDD;
+	padding: 3px;
+	color: #555;
+	border: #999 1px solid;
+	border-radius: 5px;
 }
