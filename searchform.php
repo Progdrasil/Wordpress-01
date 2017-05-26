@@ -1,8 +1,8 @@
-<form class="searchform" action="<?php home_url('/') ?>" method="get">
+<form class="searchform" action="<?php home_url() ?>/Search" method="get">
     Search : <input type="text" name="s" value="<?php echo the_search_query()?>"/><br/>
 
     <select name="search_category">
-        <option name="none">-- Select a category --</option>
+        <option name="none"></option>
         <?php
             $categories = get_categories();
             foreach($categories as $cat)

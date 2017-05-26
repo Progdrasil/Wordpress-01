@@ -56,7 +56,10 @@
             ?>
             </div>
             <div class="col span_1_of_3">
-            <?php get_sidebar(); ?>
+            <?php 
+                get_search_form( );
+                get_sidebar(); 
+            ?>
             </div>
         </div>
     </body>
