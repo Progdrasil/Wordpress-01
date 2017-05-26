@@ -2,6 +2,9 @@
 
 <html>
     <?php
+        /*
+        * Template Name: Full Width - no Sidebars
+        */
         get_header();
     ?>
 
@@ -15,36 +18,17 @@
             </div>
         </div>
         <div class="section group">
-            <div class="col span_2_of_3">
-            <?php
-                /* This is for categories and/or tags */
-            ?>
+            <div class="col span_3_of_3">
             <section>
-                <p>
-                    Categories: 
-                    <?php
-                        the_category(', ');
-                    ?>
-                </p>
-                <p>
-                    Tags: 
-                    <?php
-                        the_tags('<div id="tags">',' - ','</div>');
-                    ?>
-                </p>
-
+                <!--Written by <?php the_author(); ?>-->
             </section>
             <?php
                 /* this is for posts */
                 while (have_posts()) : the_post();
+                    echo 'Written by ';
+                    the_author();
                     the_content();
                 endwhile;
-            ?>
-            </div>
-            <div class="col span_1_of_3">
-            <?php 
-                comments_template();
-                get_sidebar();     
             ?>
             </div>
         </div>
