@@ -22,10 +22,12 @@
 
     $html5_support = array('search-form','comment-form','gallery','comment-list','caption');
 
-    if(!current_user_can('manage_options'))
+    if(current_user_can('manage_options'))
     {
         add_theme_support('post-thumbnails');
         add_theme_support( 'post-formats', array('aside','gallery','video','image') );
+        add_theme_support( 'menus' );
+
     }
     else
     {
