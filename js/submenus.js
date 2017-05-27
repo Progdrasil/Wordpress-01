@@ -1,8 +1,8 @@
-$('#header-menu').hover(
+$('#header-menu li > .sub-menu').parent().hover(
     function(){
-        $('.sub-menu li').this().slideDown();
+        $(this).children('.sub-menu').slideDown(200);
     },
     function () {
-        $('.sub-menu li').slideUp();
+        $(this).children('.sub-menu').slideUp(200);
     }
 );
