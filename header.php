@@ -19,7 +19,8 @@
                     'after'         =>  '|',
                     'container'     =>  'div',
                     'container_id'  =>  'header-parent',
-                    'container_class'=> 'header-menus'
+                    'container_class'=> 'header-menus',
+                    //'depth'         =>  1,
                 )
             );
             echo $header_menu;

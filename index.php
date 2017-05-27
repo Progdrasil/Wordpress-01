@@ -4,13 +4,21 @@
 <div class="section group">
     <div class="col span_1_of_3">
         <?php
-            wp_nav_menu( 
-                array(
-                    'theme_location' =>  'left_sidebar',
-                    'menu_id'       =>  'left-sidebar-menu',
-                    'fallback_cb'   =>  false,
-                )
-             );
+
+            if (has_nav_menu('left_sidebar'))
+            {
+                wp_nav_menu( 
+                    array(
+                        'theme_location' =>  'left_sidebar',
+                        'menu_id'       =>  'left-sidebar-menu',
+                        'fallback_cb'   =>  false,
+                    )
+                );
+            }
+            else
+            {
+                echo 'Oops sorry there is no left sidebar menu. Please click on one of the menu links above';
+            }
         ?>
     </div>
     <div class="col span_1_of_3">
