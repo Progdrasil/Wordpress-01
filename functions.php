@@ -1,6 +1,5 @@
 <?php
     //add customizer support
-    add_action('customize_register','initiate_customizer');
     function initiate_customizer($wp_customize)
     {
         // $wp_customize->add_panel();
@@ -46,7 +45,32 @@
             'settings'  =>  'company_color',
             
         )));
+        $wp_customize->add_setting('main_text_color',array(
+            'default'       =>  '#000',
+            'transport'     =>  'refresh',
+            
+        ));
+        $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize,'main_text_color_control',array(
+            'label'     =>  __('Text Color','TestTheme'),
+            'section'   =>  'colors',
+            'settings'  =>  'main_text_color',
+            
+        )));
     }
+    add_action('customize_register','initiate_customizer');
+
+    function save_background_color(){
+        ?>
+        <style type="text/css">
+            BODY{
+                background-color:#<?php echo get_theme_mod('background_color');?>;
+                color:<?php echo get_theme_mod('main_text_color'); ?> !important;
+                background-image:url(<?php echo get_theme_mod('background_image'); ?>);
+            }
+        </style>
+        <?php
+    }
+    add_action('wp_head','save_background_color');
 
     function the_current_date()
     {
