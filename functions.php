@@ -37,4 +37,11 @@
     add_theme_support( 'custom-background' );
     add_theme_support('title-tag');
     add_theme_support( 'html5', $html5_support );
+
+    register_nav_menus( array(
+        'header_menu'   =>'Header Menu',
+        'footer_menu'   =>'Footer Menu',
+        'left_sidebar'  =>'Left Sidebar Menu',
+        'header_submenu'=>'Header Submenu',
+    ) );
 ?>
