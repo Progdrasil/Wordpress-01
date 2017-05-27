@@ -1,4 +1,28 @@
 <?php
+    //add customizer support
+    add_action('customize_register','initiate_customizer');
+    function initiate_customizer($wp_customize)
+    {
+        // $wp_customize->add_panel();
+        // $wp_customize->remove_panel();
+        // $wp_customize->get_panel();
+
+        // $wp_customize->add_section();
+        // $wp_customize->remove_section();
+        // $wp_customize->get_section();
+
+        // $wp_customize->add_control();
+        // $wp_customize->remove_control();
+        // $wp_customize->get_control();
+
+        // $wp_customize->add_setting();
+        // $wp_customize->remove_setting();
+        // $wp_customize->get_setting();
+
+        $wp_customize->remove_section('title_tagline');
+        $wp_customize->remove_section('colors');
+    }
+
     function the_current_date()
     {
         $this_year = Date('Y');
@@ -44,6 +68,7 @@
         'left_sidebar'  =>'Left Sidebar Menu',
         'header_submenu'=>'Header Submenu',
     ) );
+
     function wpdocs_theme_name_scripts(){
         wp_deregister_script('jquery');
         wp_register_script('jquery','http'.($_SERVER['SERVER_PORT']==443 ? "s":"").'://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js',false,null);
