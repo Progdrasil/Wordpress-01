@@ -19,8 +19,33 @@
         // $wp_customize->remove_setting();
         // $wp_customize->get_setting();
 
-        $wp_customize->remove_section('title_tagline');
-        $wp_customize->remove_section('colors');
+        $wp_customize->add_section('company',array(
+            'title'     =>  __('Company Info','TestTheme'),
+            'priority'  =>  10,
+        ));
+
+        $wp_customize->add_setting('company_name',array(
+            'default'       =>  'Your Company Name',
+            'transport'     =>  'refresh',
+            
+        ));
+        $wp_customize->add_control(new WP_Customize_Control($wp_customize,'company_textbox',array(
+            'label'     =>  __('Name','TestTheme'),
+            'section'   =>  'company',
+            'settings'  =>  'company_name',
+            
+        )));
+        $wp_customize->add_setting('company_color',array(
+            'default'       =>  '#FFF',
+            'transport'     =>  'refresh',
+            
+        ));
+        $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize,'company_color_control',array(
+            'label'     =>  __('Primary Brand Color','TestTheme'),
+            'section'   =>  'company',
+            'settings'  =>  'company_color',
+            
+        )));
     }
 
     function the_current_date()
