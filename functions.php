@@ -77,7 +77,7 @@
 
         $wp_customize->add_section('restaurant_settings',array(
             'title'     =>  __('Restaurant Settings','TestTheme'),
-            'priority'  =>  10,
+            'priority'  =>  20,
         ));
 
         $food_choices = array(
@@ -101,6 +101,33 @@
             'type'      => 'radio',
             'choices'   =>  $food_choices,
         )));
+
+        // Google maps on customizer
+        $wp_customize->add_section('google_maps_section',array(
+            'title'     =>  __('Google Maps','TestTheme'),
+            'priority'  =>  30,
+        ));
+        $wp_customize->add_setting('maps_latitude',array(
+            'default'       =>  '0',
+            'transport'     =>  'refresh',
+            
+        ));
+        $wp_customize->add_control(new WP_Customize_Control($wp_customize,'latitude_control',array(
+            'label'     =>  __('Latitude','TestTheme'),
+            'section'   =>  'google_maps_section',
+            'settings'  =>  'maps_latitude',
+        )));
+        $wp_customize->add_setting('maps_longitude',array(
+            'default'       =>  '0',
+            'transport'     =>  'refresh',
+            
+        ));
+        $wp_customize->add_control(new WP_Customize_Control($wp_customize,'longitude_control',array(
+            'label'     =>  __('longitude','TestTheme'),
+            'section'   =>  'google_maps_section',
+            'settings'  =>  'maps_longitude',
+        )));
+        
     }
     add_action('customize_register','initiate_customizer');
 
