@@ -56,6 +56,51 @@
             'settings'  =>  'main_text_color',
             
         )));
+        $wp_customize->add_setting('specials_color',array(
+            'default'       =>  '#000',
+            'transport'     =>  'refresh',
+            
+        ));
+        $color_choices = array(
+            'red'       =>  'Red',
+            'purple'   =>  'Purple',
+            '#000'      =>  'Black'
+        );
+        asort($color_choices);
+        $wp_customize->add_control(new WP_Customize_Control($wp_customize,'specials_color_control',array(
+            'label'     =>  __('Special of the day Color','TestTheme'),
+            'section'   =>  'colors',
+            'settings'  =>  'specials_color',
+            'type'      =>  'radio',
+            'choices'   =>  $color_choices,
+        )));
+
+        $wp_customize->add_section('restaurant_settings',array(
+            'title'     =>  __('Restaurant Settings','TestTheme'),
+            'priority'  =>  10,
+        ));
+
+        $food_choices = array(
+            'pizza'       =>  'Pizza',
+            'burgers'   =>  'Burgers',
+            'chicken'      =>  'Tikka Chicken',
+            'sushi'      =>  'Sushi',
+            'burritos'      =>  'Burritos',
+
+        );
+        asort($color_choices);
+        $wp_customize->add_setting('food_choice',array(
+            'default'       =>  'pizza',
+            'transport'     =>  'refresh',
+            
+        ));
+        $wp_customize->add_control(new WP_Customize_Control($wp_customize,'food_choice_radio',array(
+            'label'     =>  __('Food Choice','TestTheme'),
+            'section'   =>  'restaurant_settings',
+            'settings'  =>  'food_choice',
+            'type'      => 'radio',
+            'choices'   =>  $food_choices,
+        )));
     }
     add_action('customize_register','initiate_customizer');
 

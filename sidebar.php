@@ -1,3 +1,9 @@
+<h2 style="color:<?php echo get_theme_mod('specials_color','#000')?>;">Specials of the day</h2>
+<ul>
+    <li><?php echo get_theme_mod('food_choice');?></li>
+</ul>
+
+
 <?php
 
     $args = array(
