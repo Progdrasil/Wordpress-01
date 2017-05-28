@@ -17,10 +17,18 @@
         // $wp_customize->add_setting();
         // $wp_customize->remove_setting();
         // $wp_customize->get_setting();
+        
+        $wp_customize->add_panel('organisation_panel',array(
+            'title'         =>  __('Organisation settings','TestTheme'),
+            'description'   =>  'All settings for your organisation',
+            'priority'      =>  5,
+            'active_callback'=> 'is_front_page',
+        ));
 
         $wp_customize->add_section('company',array(
             'title'     =>  __('Company Info','TestTheme'),
             'priority'  =>  10,
+            'panel'     =>  'organisation_panel'
         ));
 
         $wp_customize->add_setting('company_name',array(
@@ -69,7 +77,7 @@
         asort($color_choices);
         $wp_customize->add_control(new WP_Customize_Control($wp_customize,'specials_color_control',array(
             'label'     =>  __('Special of the day Color','TestTheme'),
-            'section'   =>  'colors',
+            'section'   =>  'restaurant_settings',
             'settings'  =>  'specials_color',
             'type'      =>  'radio',
             'choices'   =>  $color_choices,
@@ -78,6 +86,7 @@
         $wp_customize->add_section('restaurant_settings',array(
             'title'     =>  __('Restaurant Settings','TestTheme'),
             'priority'  =>  20,
+            'panel'     =>  'organisation_panel'
         ));
 
         $food_choices = array(
@@ -106,6 +115,7 @@
         $wp_customize->add_section('google_maps_section',array(
             'title'     =>  __('Google Maps','TestTheme'),
             'priority'  =>  30,
+            'panel'     =>  'organisation_panel'
         ));
         $wp_customize->add_setting('maps_latitude',array(
             'default'       =>  '0',
