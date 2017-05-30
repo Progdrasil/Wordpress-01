@@ -18,19 +18,20 @@
         // $wp_customize->remove_setting();
         // $wp_customize->get_setting();
         
+        // Organisation Panel
         $wp_customize->add_panel('organisation_panel',array(
             'title'         =>  __('Organisation settings','TestTheme'),
             'description'   =>  'All settings for your organisation',
             'priority'      =>  5,
             'active_callback'=> 'is_front_page',
         ));
-
+        // Company section
         $wp_customize->add_section('company',array(
             'title'     =>  __('Company Info','TestTheme'),
             'priority'  =>  10,
             'panel'     =>  'organisation_panel'
         ));
-
+        // Company Name
         $wp_customize->add_setting('company_name',array(
             'default'       =>  'Your Company Name',
             'transport'     =>  'refresh',
@@ -42,6 +43,7 @@
             'settings'  =>  'company_name',
             
         )));
+        // company color
         $wp_customize->add_setting('company_color',array(
             'default'       =>  '#FFF',
             'transport'     =>  'refresh',
@@ -53,6 +55,17 @@
             'settings'  =>  'company_color',
             
         )));
+        // Company Logo
+        $wp_customize->add_setting('logo_setting',array(
+            'default'   =>  'none',
+            'transport' =>  'refresh',
+        ));
+        $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize,'logo_selector',array(
+            'label'     =>  __('Restaurant Logo','TestTheme'),
+            'section'   =>  'company',
+            'settings'  =>  'logo_setting',
+        )));
+        // normal text color
         $wp_customize->add_setting('main_text_color',array(
             'default'       =>  '#000',
             'transport'     =>  'refresh',
@@ -64,6 +77,7 @@
             'settings'  =>  'main_text_color',
             
         )));
+        // Special of the day text color
         $wp_customize->add_setting('specials_color',array(
             'default'       =>  '#000',
             'transport'     =>  'refresh',
@@ -82,13 +96,13 @@
             'type'      =>  'radio',
             'choices'   =>  $color_choices,
         )));
-
+        // Restaurant settings section
         $wp_customize->add_section('restaurant_settings',array(
             'title'     =>  __('Restaurant Settings','TestTheme'),
             'priority'  =>  20,
             'panel'     =>  'organisation_panel'
         ));
-
+        // Special of the day selection
         $food_choices = array(
             'pizza'       =>  'Pizza',
             'burgers'   =>  'Burgers',
