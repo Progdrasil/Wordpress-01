@@ -31,7 +31,7 @@
  * Plugin:
  * require_once dirname( __FILE__ ) . '/path/to/class-tgm-plugin-activation.php';
  */
-
+require_once('class-tgm-plugin-activation.php');
 add_action( 'tgmpa_register', 'TestTheme_register_required_plugins' );
 
 /**
@@ -93,7 +93,7 @@ function TestTheme_register_required_plugins() {
 		array(
 			'name'      => 'BuddyPress',
 			'slug'      => 'buddypress',
-			'required'  => false,
+			'required'  => true,
 		),
 
 		// This is an example of the use of 'is_callable' functionality. A user could - for instance -
@@ -103,9 +103,14 @@ function TestTheme_register_required_plugins() {
 		// `array( 'class', 'method' )` similar to how you hook in to actions and filters, TGMPA can still
 		// recognize the plugin as being installed.
 		array(
-			'name'        => 'WordPress SEO by Yoast',
+			'name'        => 'Cool SEO by Yoast',
 			'slug'        => 'wordpress-seo',
 			'is_callable' => 'wpseo_init',
+		),
+		array(
+			'name'		=>	'Page Builder by SiteOrigins',
+			'slug'		=>	'siteorigin-panels',
+			'required'	=>	true,
 		),
 
 	);
